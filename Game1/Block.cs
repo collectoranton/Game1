@@ -8,12 +8,21 @@ namespace Game1
 {
     public class Block
     {
+        public Position Position { get; set; }
         public Transparency Transparency { get; set; }
         public ConsoleColor Color { get; set; }
         public bool IsFilled => Transparency != Transparency.Full;
 
-        public Block(Transparency transparency = Transparency.None, ConsoleColor color = ConsoleColor.White)
+        public Block(Position position, ConsoleColor color = ConsoleColor.White, Transparency transparency = Transparency.None)
         {
+            Position = position;
+            Transparency = transparency;
+            Color = color;
+        }
+
+        public Block(int xPosition = 0, int yPosition = 0, ConsoleColor color = ConsoleColor.White, Transparency transparency = Transparency.None)
+        {
+            Position = new Position(xPosition, yPosition);
             Transparency = transparency;
             Color = color;
         }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection.Metadata;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -22,22 +23,6 @@ namespace Game1
             //}
 
             gameBoard.Run();
-        }
-
-        private static Block[,] GenerateBoard(int xSize, int ySize)
-        {
-            var rnd = new Random();
-            var board = new Block[xSize, ySize];
-
-            for (var y = 0; y < ySize; y++)
-            {
-                for (var x = 0; x < xSize; x++)
-                {
-                    board[x, y] = new Block((Transparency)rnd.Next(5), (ConsoleColor) rnd.Next(16));
-                }
-            }
-
-            return board;
         }
     }
 }
